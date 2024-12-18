@@ -1,5 +1,5 @@
 from django import forms
-from .models import Client, Immobile
+from .models import Client, Immobile, RegisterLocation
 
 ## Cadastra Cliente
 class ClientForm(forms.ModelForm):
@@ -25,4 +25,20 @@ class ImmobileForm(forms.ModelForm):
             if field.widget.__class__.__name__ in ('CheckboxInput', 'RadioSelect'):
                 field.widget.attrs['class'] = 'form-check-input'
             else:
-                field.widget.attrs['class'] = 'form-control'  # FORMMYAAP
+                field.widget.attrs['class'] = 'form-control'  
+
+
+
+class RegisterLocationForm(forms.ModelForm):
+    dt_start = forms.DateTimeField(widget=forms.DateInput(format='%d-%m-%Y', attrs={'type': 'date'}))
+    dt_end = forms.DateTimeField(widget=forms.DateInput(format='%d-%m-%Y', attrs={'type': 'date'}))
+
+    class Meta:
+        model = RegisterLocation
+        fields = '__all__'
+        exclude = ('immobile', 'create_at',)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'form-control'
