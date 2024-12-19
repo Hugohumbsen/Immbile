@@ -1,0 +1,28 @@
+<a class="navbar-brand" href="#">Myapp</a>
+
+<div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <ul class="navbar-nav gap-3 mb-2 mb-lg-0 mx-auto">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Início</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Relatório</a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Cadastrar
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark">
+                <li>
+                    <a class="dropdown-item" href="{% url 'client-create' %}">Cliente</a>
+                </li>
+                <hr class="dropdown-divider">
+                <li>
+                    <a class="dropdown-item" href="{% url 'immobile-create' %}">Imóvel</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<a class="navbar-brand" href="#">@eticialima</a>
