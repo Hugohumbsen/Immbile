@@ -65,3 +65,12 @@ def form_location(request, id):
     context = {'form': form, 'location': get_locate}
     return render(request, 'form-location.html', context)
 
+def reports (request)
+    Immobile = Immobile.objects.all()
+
+    get_locate = request.GET.get('is_locate')
+    if get_locate:
+        Immobile=Immobile.objects.filter(is_locate=get_locate)
+
+
+    return render(request,'reports.html',{'immobiles': Immobile})
